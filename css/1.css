@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+xu {
+    display: flex;
+    justify-xu4: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(210, 210, 220);
+}
+
+.x {
+    position: relative;
+    min-width: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* 设置3d变化 */
+    transform-style: preserve-3d;
+    /* 添加透视效果 */
+    perspective: 900px;
+}
+
+.x .x2 {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    transition: 0.3s;
+    overflow: hidden;
+    margin: 30px;
+    transform: rotateY(0deg);
+    transition-delay: .1s;
+    border-radius: 5px;
+    border: #fff 5px solid;
+}
+
+/* 当鼠标所有卡片的父元素点x上时，
+所有卡片像Y轴翻转20度 */
+.x:hover .x2 {
+    transform: rotateY(20deg);
+}
+
+/* 当鼠标悬浮在当前卡片上时，当前卡片的翻转角度为0，
+并放大一点二五倍，加个阴影 */
+.x .x2:hover {
+    transform: rotateY(0deg) scale(1.25);
+    x2-shadow: 0 25px 40px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+/* 当鼠标悬浮在卡片上时，
+当前卡片后面的所有卡片全部都反向翻转负20度 */
+.x .x2:hover~.x2 {
+    transform: rotateY(-20deg);
+}
+
+.x .x2 .images img {
+    width: 100%;
+}
+
+.x .x2 .xu4 {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    height: 100%;
+    z-index: 999;
+    padding: 15px;
+}
+
+.x .x2 .xu4 h2 {
+    color: rgb(210, 140, 140);
+    transition: 0.3s;
+    font-size: 20px;
+    transform: translateY(-100px);
+}
+
+.x .x2:hover .xu4 h2 {
+    transform: translateY(-15px);
+}
+
+.x .x2 .xu4 p {
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    font-size: 14px;
+    transform: translateY(600px);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.x .x2:hover .xu4 p {
+    transform: translateY(220px);
+}

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页制作</title>
+    <script src="js/echarts.js"></script>
+    <script src="js/vintage.js"></script>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/1.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <style>
+        body .shell-main-nav ul .nav-box {
+            left: 240px;
+        }
+
+        body .shell-main {
+            margin-bottom: 0;
+        }
+
+        body .shell-main-nav {
+            margin-bottom: 0;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            background-image: linear-gradient(to bottom, #a1e6ff, #a1e6ff);
+            height: 700px;
+        }
+
+        header img {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        header h2 {
+            font: 100 60px '';
+            margin-bottom: 20px;
+            font-family: font;
+            letter-spacing: 5px;
+            border-bottom: 2px solid rgb(134, 134, 118);
+            color: #ffffff;
+        }
+
+        header p {
+            font: 100 30px '';
+            letter-spacing: 5px;
+        }
+
+        .h-b {
+            display: flex;
+            justify-content: space-evenly;
+            width: 90%;
+
+        }
+
+        .h-b p {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .h-b-l,
+        .h-b-r {
+            width: 20%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* ------------------------------------------------------------------ */
+        footer {
+            max-width: 1430px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border: 1px rgba(0, 0, 0, 0.187) solid;
+            margin: 20px 0;
+        }
+
+        .left {
+            width: 70%;
+
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left p {
+            text-align: left;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            font: 600 25px '';
+            color: rgb(147, 145, 142);
+        }
+
+        .top {
+            margin: 30px 0;
+        }
+
+        .top table {
+            margin: 30px 0;
+            width: 100%;
+            border-collapse: collapse;
+            border: rgba(0, 0, 0, 0.216);
+        }
+
+        .top table td {
+            padding: 3px 10px;
+        }
+
+        .top table th {
+            background-color: rgb(248, 248, 248);
+        }
+
+        .left h2,
+        .right h2 {
+            font-size: 30px;
+            position: relative;
+            width: 100%;
+            /* height: 30px; */
+        }
+
+        .left h2::after,
+        .right h2::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -20px;
+            background-color: rgb(100, 160, 240);
+            width: 15px;
+            height: 100%;
+            top: 0;
+        }
+
+        .right h2::after {
+            left: 0;
+        }
+
+        .right h2 {
+            padding: 0 20px;
+            font-size: 20px;
+        }
+
+        .left h2::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 80%;
+            height: 2px;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            background-color: rgba(0, 0, 0, 0.223)
+        }
+
+        .left span {
+            font-size: 15px;
+        }
+
+        .imgs {
+            width: 100%;
+            display: flex;
+        }
+
+        .imgs img {
+            width: 25%;
+        }
+
+        .right {
+            width: 25%;
+            padding: 10px;
+        }
+
+        .right img {
+            width: 100%;
+            margin: 30px 0;
+        }
+
+        .bottom {
+            position: sticky;
+            top: 20px;
+        }
+
+        .b {
+            width: 100%;
+            background-color: #fff;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border: rgba(0, 0, 0, 0.216) 1px solid;
+        }
+        @media (max-width:1000px){
+            .h-b-r,.h-b-l,.right{
+                display: none;
+            }
+            .content{
+                justify-content: center;
+            }
+        }
+        .bottom{
+            width: 1300px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        .bottom::after{
+            
+            position: absolute;
+            top: -170px;
+            width: 100%;
+            text-align: center;
+            font: 300 40px '';
+        }
+        .bottom img{
+            width: 23%;
+            height: 300px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="shell-main">
+            <div class="shell-main-nav">
+                <div class="logo">
+                    <img src="./image/logo.jpg" alt="">
+                    <span>游戏精品类型</span>
+                </div>
+                <ul>
+                  <li><a href="./index.html">简介</a></li>
+                    <li><a href="./make.html">数据分析</a></li>
+                    <li><a href="./Template.html">steam精品游戏推荐</a></li>
+                    <li><a href="./Login.html">登录</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="main" style="width: 1200px;height:800px;"></div>
+        <script type="text/javascript">
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option = {
+              title: {
+                text: 'Steam 下载使用带宽(东八区时间)'
+              },
+              tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                  type: 'shadow',
+                  label: {
+                    backgroundColor: '#6a7985'
+                  }
+                }
+              },
+              legend: {
+                data: ['北美洲', '欧洲', '亚洲', '南美洲', '大洋洲','非洲']
+              },
+              toolbox: {
+                feature: {
+                  saveAsImage: {}
+                }
+              },
+              grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+              },
+              xAxis: [
+                {
+                  type: 'category',
+                  boundaryGap: false,
+                  data: ['12-5 12:00', '12-5 18:00', '12-5 24:00', '12-6 6:00', '12-6 12:00']
+                }
+              ],
+              yAxis: [
+                {
+                  type: 'value'
+                }
+              ],
+              series: [
+                {
+                  name: '北美洲',
+                  type: 'line',
+                  stack: 'Total',
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [3408, 1107, 1233, 134, 90]
+                },
+                {
+                  name: '欧洲',
+                  type: 'line',
+                  stack: 'Total',
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [540, 1532, 3127, 2962, 290]
+                },
+                {
+                  name: '亚洲',
+                  type: 'line',
+                  stack: 'Total',
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [4486, 6829, 8114, 2918, 190]
+                },
+                {
+                  name: '南美洲',
+                  type: 'line',
+                  stack: 'Total',
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [630, 650, 674, 1088, 390]
+                },
+                {
+                  name: '大洋洲',
+                  type: 'line',
+                  stack: 'Total',
+                  label: {
+                    show: true,
+                    position: 'top'
+                  },
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [203, 264, 901, 1117, 1290]
+                },
+                {
+                  name: '非洲',
+                  type: 'line',
+                  stack: 'Total',
+                  label: {
+                    show: true,
+                    position: 'top'
+                  },
+                  areaStyle: {},
+                  emphasis: {
+                    focus: 'series'
+                  },
+                  data: [19, 44, 901, 59, 38]
+                }
+              ]
+            };
+            option && myChart.setOption(option);
+        </script>
+    
+    
+        <div id="main2" style="width: 1000px;height:800px;"></div>,
+        <script type="text/javascript">
+          var myChart2 = echarts.init(document.getElementById('main2'));
+          var option2 = {
+              tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+              },
+              title: {
+                text: '热玩游戏类型'
+              },
+              legend: {
+                data: ['免费','付费','多人','射击','生存','开放世界','大逃杀','团队合作','战争'
+                ]
+              },
+              toolbox: {
+                feature: {
+                  saveAsImage: {}
+                }
+              },
+              series: [
+                {
+                  name: '占比',
+                  type: 'pie',
+                  selectedMode: 'single',
+                  radius: [0, '30%'],
+                  label: {
+                    position: 'inner',
+                    fontSize: 14
+                  },
+                  labelLine: {
+                    show: false
+                  },
+                  data: [
+                    { value: 7, name: '免费' },
+                    { value: 17, name: '付费', selected: true }
+                  ]
+                },
+                {
+                  name: '占比',
+                  type: 'pie',
+                  radius: ['45%', '60%'],
+                  labelLine: {
+                    length: 30
+                  },
+                  label: {
+                    formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                    backgroundColor: '#F6F8FC',
+                    borderColor: '#8C8D8E',
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    rich: {
+                      a: {
+                        color: '#6E7079',
+                        lineHeight: 22,
+                        align: 'center'
+                      },
+                      hr: {
+                        borderColor: '#8C8D8E',
+                        width: '100%',
+                        borderWidth: 1,
+                        height: 0
+                      },
+                      b: {
+                        color: '#4C5058',
+                        fontSize: 14,
+                        fontWeight: 'bold',
+                        lineHeight: 33
+                      },
+                      per: {
+                        color: '#fff',
+                        backgroundColor: '#4C5058',
+                        padding: [3, 4],
+                        borderRadius: 4
+                      }
+                    }
+                  },
+                  data: [
+                    { value: 8, name: '开放世界' },
+                    { value: 19, name: '多人' },
+                    { value: 3, name: '大逃杀' },
+                    { value: 9, name: '射击' },
+                    { value: 6, name: '团队合作' },
+                    { value: 5, name: '生存' },
+                    { value: 4, name: '战争' }
+                  ]
+                }
+              ]
+            };
+          myChart2.setOption(option2);
+        </script>
+    
+
+    <div class="x">
+      <div class="x2">
+          <div class="images">
+              <img src="./image/1.png">
+          </div>
+          <div class="xu4">
+              <h2>多人游戏</h2>
+              <p>可以供多人同时参与的游戏，一般分为联机多人游戏和局域网多人游戏及在线多人游戏
+              </p>
+          </div>
+      </div>
+      <div class="x2">
+          <div class="images">
+              <img src="./image/2.png">
+          </div>
+          <div class="xu4">
+              <h2>射击游戏</h2>
+              <p>不论是用枪械、飞机，只要是进行“射击动作”的游戏都可以称之为射击游戏
+              </p>
+          </div>
+      </div>
+      <div class="x2">
+          <div class="images">
+              <img src="./image/3.png">
+          </div>
+          <div class="xu4">
+              <h2>开放世界游戏</h2>
+              <p>玩家可自由地在一个虚拟世界中漫游，并可自由选择完成游戏任务的时间点和方式
+              </p>
+          </div>
+      </div>
+      <div class="x2">
+          <div class="images">
+              <img src="./image/4.png">
+          </div>
+          <div class="xu4">
+              <h2>团队合作游戏</h2>
+              <p>需要游玩者们团结一致,密切合作,克服困难的团队精神
+              </p>
+          </div>
+      </div>
+      <div class="x2">
+          <div class="images">
+              <img src="./image/5.png">
+          </div>
+          <div class="xu4">
+              <h2>生存游戏</h2>
+              <p>游戏里,玩家可以探索、战斗、升级、求生、收集、制作、打猎、耕种、建造、捕鱼、烹饪
+              </p>
+          </div>
+      </div>
+      <div class="x2">
+        <div class="images">
+            <img src="./image/6.png">
+        </div>
+        <div class="xu4">
+            <h2>战争游戏</h2>
+            <p>T战争游戏是一个或多个玩家对一场战役或整个战争进行模拟的一种游戏或军事演习
+            </p>
+        </div>
+    </div>
+    <div class="x2">
+      <div class="images">
+          <img src="./image/7.png">
+      </div>
+      <div class="xu4">
+          <h2>大逃杀</h2>
+          <p>参与者放在一定的范围内，进行厮杀竞赛，存活下来的人为赢家
+          </p>
+      </div>
+  </div>
+  </div>
+
+
+
+        <div id="main3" style="width: 1200px;height:800px;"></div>
+        <script type="text/javascript">
+          var chartDom3 = document.getElementById('main3');
+          var myChart3 = echarts.init(chartDom3);
+          var option3;
+          option3 = {
+              title: {
+              text: '显卡使用累计占比'
+              },
+              tooltip: {
+                  trigger: 'axis',
+                  axisPointer: {
+                  // Use axis to trigger tooltip
+                  type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                  }
+              },
+              toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+              },
+              legend: {},
+              grid: {
+                  left: '3%',
+                  right: '4%',
+                  bottom: '3%',
+                  containLabel: true
+              },
+              xAxis: {
+                  type: 'value'
+              },
+              yAxis: {
+                  type: 'category',
+                  data: ['NVIDIA GeForce GTX 1650', 'NVIDIA GeForce GTX 1060', 'NVIDIA GeForce RTX 2060', 'NVIDIA GeForce GTX 1050 Ti', 'NVIDIA GeForce RTX 3060 Laptop GPU', 'NVIDIA GeForce RTX 3060', 'NVIDIA GeForce RTX 3070','NVIDIA GeForce GTX 1660 SUPER','NVIDIA GeForce RTX 3060 Ti','NVIDIA GeForce GTX 1660 Ti']
+              },
+              series: [
+                  {
+                  name: '八月',
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: [6.24,6.6,5.02,4.99,3.39,3.24,2.32,2.46,2,2.55]
+                  },
+                  {
+                  name: '九月',
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: [12.56,13.54,10.21,9.9,7.39,6.76,4.65,4.98,4.1,5.12]
+                  },
+                  {
+                  name: '十月',
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: [18.17,21.16,16.31,14.29,10.78,12.23,7.41,7.32,6.63,7.4]
+                  },
+                  {
+                  name: '十一月',
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: [24.44,26.93,20.95,18.89,15.41,15.64,9.85,9.73,8.9,9.86]
+                  },
+                  {
+                  name: '十二月',
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: [30.65,32.58,25.6,23.3,19.44,19.52,12.57,12.32,11.48,12.25]
+                  }
+              ]
+              };
+    
+          option3 && myChart3.setOption(option3);
+    
+      </script>
+ <div class="bottom">
+  <img src="./image/2 (6).png" alt="">
+  <img src="./image/2 (2).png" alt="">
+  <img src="./image/2 (4).png" alt="">
+  <img src="./image/2 (9).png" alt="">
+</div>
+      
+    
+      <div class="shell-main-footer">
+          <span>许鸿锋 满鑫 李好</span>
+      </div>
+</body>
+</html>
